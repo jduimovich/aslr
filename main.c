@@ -8,20 +8,20 @@
 extern void slib1();
 extern void slib2();
 
-int main(int argc, char *argv[])
-{ 
+#ifndef MODE
+#define MODE "PASS_ON_CLI"
+#endif
 
+int main(int argc, char *argv[])
+{  
   char onstack[5] = "1234";
   {
     char *str = (char *)malloc(15);
-    printf("Heap address = %p\n", str);
+    printf("%s, Heap address = %p\n", str);
     free(str);
-  }
-
-  printf("Stack address = %p\n", onstack);
-
-  printf("external shared library slib1 %p\n", slib1);
-  printf("external shared library slib2 %p\n", slib2); 
-
+  } 
+  printf("%s, Stack address = %p\n", MODE, onstack); 
+  printf("%s, slib1 %p\n", slib1);
+  printf("%s, slib2 %p\n", slib2);  
   return 0;
 }
