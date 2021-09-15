@@ -16,4 +16,5 @@ echo "2 runs of app using shared lib"
 
 echo "2 runs of app using shared lib with nopie" 
 ./main_so_nopie
+./main_so_nopie
 
