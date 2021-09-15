@@ -14,6 +14,7 @@ extern void slib2();
 
 int main(int argc, char *argv[])
 {
+  printf("%s, main address = %p\n", MODE, main);
   char onstack[5] = "1234";
   {
     char *str = (char *)malloc(15);
